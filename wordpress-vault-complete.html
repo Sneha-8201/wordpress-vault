@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌷 Sneha's WordPress Vault</title>
+
+<style>
+:root{
+    --pink:#f6b8d2;
+    --pink-light:#fff0f7;
+    --purple:#8b6aa9;
+    --purple-dark:#503c5f;
+    --lavender:#eee6ff;
+    --text:#3d3441;
+    --muted:#756b78;
+    --white:#ffffff;
+    --green:#dff5e7;
+    --green-text:#39704d;
+    --blue:#e4efff;
+    --blue-text:#42658d;
+    --yellow:#fff3c9;
+    --yellow-text:#796126;
+    --shadow:0 12px 35px rgba(95,62,91,.09);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    background:#fff9fc;
+    color:var(--text);
+    line-height:1.65;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#ffd9e9 0%,#f4e5ff 50%,#dfeeff 100%);
+    padding:58px 20px 45px;
+    text-align:center;
+    border-bottom:4px solid #f3c0d7;
+}
+
+.logo{
+    font-size:16px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#765c75;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+header h1{
+    font-size:clamp(34px,6vw,58px);
+    color:#523d58;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+    color:#715f72;
+    max-width:700px;
+    margin:auto;
+}
+
+/* SEARCH */
+.search-wrap{
+    max-width:850px;
+    margin:-25px auto 0;
+    padding:0 20px;
+    position:relative;
+    z-index:5;
+}
+
+.search-box{
+    background:white;
+    border:2px solid #efc8dc;
+    border-radius:22px;
+    box-shadow:0 12px 35px rgba(95,62,91,.12);
+    padding:7px;
+    display:flex;
+    align-items:center;
+}
+
+#searchBox{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:15px 16px;
+    font-size:16px;
+    color:var(--text);
+    background:transparent;
+}
+
+.clear-btn{
+    border:0;
+    background:#ffe5f0;
+    color:#704d68;
+    padding:10px 15px;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.clear-btn:hover{background:#ffd5e6}
+
+/* NAV */
+.nav-wrap{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(255,249,252,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #f1dce7;
+}
+
+nav{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:14px 15px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#704d68;
+    background:#fff;
+    padding:9px 14px;
+    border-radius:18px;
+    border:1px solid #efd1df;
+    transition:.2s;
+    font-size:14px;
+    font-weight:600;
+}
+
+nav a:hover{
+    background:#ffe3ef;
+    transform:translateY(-2px);
+}
+
+/* MAIN */
+main{
+    max-width:1250px;
+    margin:auto;
+    padding:40px 20px 70px;
+}
+
+.section{
+    margin-bottom:70px;
+    scroll-margin-top:85px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.section-title h2{
+    font-size:30px;
+    color:var(--purple-dark);
+}
+
+.section-title span{
+    color:#a27b9e;
+    font-size:14px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:var(--white);
+    border:1px solid #efdce6;
+    border-radius:20px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(95,62,91,.13);
+}
+
+.card h3{
+    color:#674c68;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.card h4{
+    color:#735774;
+    margin:16px 0 7px;
+}
+
+.card p{color:var(--muted)}
+
+.card ul{
+    margin:10px 0 0 20px;
+}
+
+.card li{margin:5px 0}
+
+.card strong{color:#5b435b}
+
+/* TAGS */
+.tag{
+    display:inline-block;
+    margin-top:12px;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+    background:#ffe4ef;
+    color:#794b65;
+}
+
+.tag.green{background:var(--green);color:var(--green-text)}
+.tag.blue{background:var(--blue);color:var(--blue-text)}
+.tag.yellow{background:var(--yellow);color:var(--yellow-text)}
+.tag.purple{background:#eee5ff;color:#684c8b}
+
+/* TABLE */
+.table-wrap{
+    overflow-x:auto;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    padding:14px 16px;
+    text-align:left;
+    border-bottom:1px solid #f0e1e8;
+}
+
+th{
+    background:#f8e9f2;
+    color:#5e465d;
+}
+
+tr:last-child td{border-bottom:0}
+
+/* CODE */
+.code-box{
+    background:#29252d;
+    color:#f9dff0;
+    padding:20px;
+    border-radius:15px;
+    margin-top:12px;
+    overflow:auto;
+    font-family:Consolas,Monaco,monospace;
+    white-space:pre;
+}
+
+/* INFO BOXES */
+.info,.warning,.tip{
+    padding:18px 20px;
+    border-radius:15px;
+    margin-top:18px;
+}
+
+.info{
+    background:#fff0f7;
+    border-left:5px solid #df9abb;
+}
+
+.warning{
+    background:#fff7dc;
+    border-left:5px solid #e3bf55;
+}
+
+.tip{
+    background:#e9f5ff;
+    border-left:5px solid #8bbce7;
+}
+
+/* CHECKLIST */
+.checklist{
+    list-style:none;
+    margin:0!important;
+}
+
+.checklist li{
+    background:#fff8fb;
+    border:1px solid #f3dce7;
+    border-radius:12px;
+    padding:11px 12px;
+    margin:8px 0;
+}
+
+.checklist input{
+    margin-right:9px;
+    accent-color:#d88daf;
+    transform:scale(1.15);
+}
+
+/* FLOW */
+.flow{
+    display:grid;
+    gap:10px;
+}
+
+.flow-step{
+    background:white;
+    border:1px solid #efdce6;
+    border-radius:14px;
+    padding:14px 18px;
+    box-shadow:0 5px 18px rgba(95,62,91,.06);
+}
+
+.arrow{
+    text-align:center;
+    color:#b37c9d;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px 20px;
+    background:#f8eaf2;
+    color:#73596c;
+}
+
+footer p{margin:5px}
+
+/* NO RESULTS */
+#noResults{
+    display:none;
+    text-align:center;
+    padding:50px 20px;
+    color:#806f80;
+}
+
+/* MOBILE */
+@media(max-width:650px){
+    header{padding:45px 16px 35px}
+    main{padding:30px 14px 50px}
+    nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}
+    nav a{white-space:nowrap}
+    .section-title h2{font-size:24px}
+    .search-box{border-radius:17px}
+    .clear-btn{padding:9px 11px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌷 Personal Learning Dashboard</div>
+    <h1>Sneha's WordPress Vault</h1>
+    <p>My little WordPress knowledge library — plugins, themes, SEO, coding, WooCommerce & everything I need to remember. 💻✨</p>
+</header>
+
+<div class="search-wrap">
+    <div class="search-box">
+        <input id="searchBox" type="text"
+            placeholder="🔍 Search anything..."
+            oninput="searchNotes()">
+        <button class="clear-btn" onclick="clearSearch()">Clear</button>
+    </div>
+</div>
+
+<div class="nav-wrap">
+<nav>
+    <a href="#basics" onclick="clearSearch()">🏠 Basics</a>
+    <a href="#themes" onclick="clearSearch()">🎨 Themes</a>
+    <a href="#plugins" onclick="clearSearch()">🧩 Plugins</a>
+    <a href="#builders" onclick="clearSearch()">🧱 Builders</a>
+    <a href="#pages" onclick="clearSearch()">📄 Pages</a>
+    <a href="#seo" onclick="clearSearch()">🔍 SEO</a>
+    <a href="#security" onclick="clearSearch()">🔐 Security</a>
+    <a href="#speed" onclick="clearSearch()">🚀 Speed</a>
+    <a href="#images" onclick="clearSearch()">🖼️ Images</a>
+    <a href="#woocommerce" onclick="clearSearch()">🛒 WooCommerce</a>
+    <a href="#payments" onclick="clearSearch()">💳 Payments</a>
+    <a href="#email" onclick="clearSearch()">📧 Email</a>
+    <a href="#coding" onclick="clearSearch()">💻 Coding</a>
+    <a href="#files" onclick="clearSearch()">📁 Files</a>
+    <a href="#childtheme" onclick="clearSearch()">🧠 Child Theme</a>
+    <a href="#plugin-types" onclick="clearSearch()">🔌 Plugin Types</a>
+    <a href="#migration" onclick="clearSearch()">📦 Migration</a>
+    <a href="#hosting" onclick="clearSearch()">🌐 Hosting</a>
+    <a href="#database" onclick="clearSearch()">🗄️ Database</a>
+    <a href="#users" onclick="clearSearch()">👤 Users</a>
+    <a href="#tools" onclick="clearSearch()">🧰 Tools</a>
+    <a href="#local" onclick="clearSearch()">🧪 Local Dev</a>
+    <a href="#launch" onclick="clearSearch()">🚨 Launch</a>
+    <a href="#stack" onclick="clearSearch()">⭐ Stack</a>
+    <a href="#roadmap" onclick="clearSearch()">🌱 Roadmap</a>
+</nav>
+</div>
+
+<main>
+
+<section class="section searchable" id="basics">
+<div class="section-title"><h2>🟦 1. Must-Know WordPress Basics</h2></div>
+
+<div class="table-wrap">
+<table>
+<tr><th>What</th><th>Remember</th></tr>
+<tr><td>CMS</td><td>WordPress</td></tr>
+<tr><td>Dashboard</td><td><code>/wp-admin</code></td></tr>
+<tr><td>Themes</td><td>Control the website's design</td></tr>
+<tr><td>Plugins</td><td>Add functionality</td></tr>
+<tr><td>Posts</td><td>Blog/news content</td></tr>
+<tr><td>Pages</td><td>Static pages like Home, About and Contact</td></tr>
+<tr><td>Media</td><td>Images, videos, PDFs and other uploads</td></tr>
+<tr><td>Widgets</td><td>Small content/function areas</td></tr>
+<tr><td>Menus</td><td>Website navigation</td></tr>
+<tr><td>Permalinks</td><td>URL structure</td></tr>
+<tr><td>Gutenberg</td><td>WordPress's default block editor</td></tr>
+</table>
+</div>
+
+<div class="cards" style="margin-top:20px">
+<div class="card">
+<h3>🌐 WordPress.org</h3>
+<p>Self-hosted WordPress. You choose your hosting and have much more control over files, themes, plugins and the database.</p>
+<span class="tag green">Professional learning</span>
+</div>
+<div class="card">
+<h3>☁️ WordPress.com</h3>
+<p>A hosted WordPress service. Hosting is provided as part of the service, with plan-specific features and limitations.</p>
+<span class="tag blue">Hosted service</span>
+</div>
+</div>
+</section>
+
+<section class="section searchable" id="themes">
+<div class="section-title"><h2>🎨 2. Important WordPress Themes</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🌸 Astra</h3><p>Lightweight and beginner-friendly. Works well with Elementor and Gutenberg.</p><span class="tag">Beginner</span></div>
+<div class="card"><h3>🌿 GeneratePress</h3><p>Lightweight theme focused on speed, clean code and customization.</p><span class="tag green">Fast</span></div>
+<div class="card"><h3>💜 Kadence</h3><p>Modern theme with strong customization and block editing support.</p></div>
+<div class="card"><h3>🌊 OceanWP</h3><p>Multipurpose theme suitable for different types of websites.</p></div>
+<div class="card"><h3>🌱 Neve</h3><p>Lightweight theme suitable for business sites, blogs and portfolios.</p></div>
+<div class="card"><h3>🧱 Blocksy</h3><p>Modern theme with strong block-editor and WooCommerce support.</p></div>
+<div class="card"><h3>🛍️ Storefront</h3><p>WooCommerce's official theme, designed for ecommerce sites.</p><span class="tag yellow">Ecommerce</span></div>
+<div class="card"><h3>💎 Divi</h3><p>Premium theme and visual builder ecosystem.</p><span class="tag purple">Premium</span></div>
+<div class="card"><h3>🚀 Avada</h3><p>Popular multipurpose premium WordPress theme.</p></div>
+<div class="card"><h3>🌷 BeTheme</h3><p>Multipurpose premium theme with many pre-built layouts.</p></div>
+<div class="card"><h3>⭐ The7</h3><p>Multipurpose theme commonly used with visual page-building workflows.</p></div>
+<div class="card"><h3>✨ Salient</h3><p>Premium multipurpose theme focused on visual design.</p></div>
+<div class="card"><h3>🧩 Twenty Twenty-Five</h3><p>WordPress default block theme from the Twenty Twenty series.</p></div>
+<div class="card"><h3>🧩 Twenty Twenty-Six</h3><p>A current Twenty Twenty-series WordPress default theme to know when working with modern WordPress installations.</p></div>
+</div>
+
+<div class="info"><strong>⭐ Learning recommendation:</strong> Start with <strong>Astra + Gutenberg</strong>, then learn <strong>Astra + Elementor</strong>, and then understand <strong>block themes + Full Site Editing</strong>.</div>
+</section>
+
+<section class="section searchable" id="plugins">
+<div class="section-title"><h2>🧩 3. Important Plugins</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🔍 Rank Math</h3><p>SEO plugin for optimizing pages, posts and other content for search engines.</p><span class="tag blue">SEO</span></div>
+<div class="card"><h3>🔎 Yoast SEO</h3><p>Another major SEO plugin for WordPress.</p><span class="tag blue">SEO</span></div>
+<div class="card"><h3>📈 All in One SEO</h3><p>SEO toolkit with optimization and site-management features.</p><span class="tag blue">SEO</span></div>
+<div class="card"><h3>🔐 Wordfence Security</h3><p>Security plugin with firewall, malware scanning and security tools.</p><span class="tag">Security</span></div>
+<div class="card"><h3>🛡️ Solid Security</h3><p>Security hardening and site-protection tools.</p><span class="tag">Security</span></div>
+<div class="card"><h3>💾 UpdraftPlus</h3><p>Backup and restoration plugin.</p><span class="tag green">Backup</span></div>
+<div class="card"><h3>🚀 LiteSpeed Cache</h3><p>Performance and caching plugin. Best suited to environments where LiteSpeed features are available.</p><span class="tag green">Speed</span></div>
+<div class="card"><h3>⚡ WP Rocket</h3><p>Popular premium caching and performance optimization plugin.</p><span class="tag green">Speed</span></div>
+<div class="card"><h3>📝 WPForms</h3><p>Beginner-friendly drag-and-drop form builder.</p><span class="tag yellow">Forms</span></div>
+<div class="card"><h3>📨 Fluent Forms</h3><p>Flexible WordPress form builder.</p><span class="tag yellow">Forms</span></div>
+<div class="card"><h3>📬 Contact Form 7</h3><p>Long-standing free form plugin.</p><span class="tag yellow">Forms</span></div>
+<div class="card"><h3>🛒 WooCommerce</h3><p>Adds ecommerce functionality: products, carts, checkout, orders and more.</p><span class="tag">Ecommerce</span></div>
+<div class="card"><h3>🖼️ Smush</h3><p>Image optimization and compression.</p><span class="tag green">Images</span></div>
+<div class="card"><h3>📸 ShortPixel</h3><p>Image compression and optimization.</p><span class="tag green">Images</span></div>
+<div class="card"><h3>🔌 WP Mail SMTP</h3><p>Helps WordPress send email through an SMTP provider.</p><span class="tag yellow">Email</span></div>
+<div class="card"><h3>📊 Site Kit by Google</h3><p>Connects supported Google services such as Search Console and Analytics to WordPress.</p><span class="tag blue">Analytics</span></div>
+<div class="card"><h3>📦 Duplicator</h3><p>Useful for backups, migration and site cloning workflows.</p><span class="tag purple">Migration</span></div>
+<div class="card"><h3>🍪 CookieYes</h3><p>Cookie-consent tools for websites that need consent management.</p><span class="tag yellow">Privacy</span></div>
+</div>
+
+<div class="warning"><strong>⚠️ Important:</strong> Do not install several plugins that perform the same job unless you have a specific reason. In particular, avoid stacking multiple cache/security/SEO plugins without understanding conflicts.</div>
+</section>
+
+<section class="section searchable" id="builders">
+<div class="section-title"><h2>🧱 4. Page Builders & Editors</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🟣 Elementor</h3><p>Drag-and-drop visual page builder.</p><p><strong>Know:</strong> Containers → Widgets → responsive settings → templates.</p><span class="tag">Visual Builder</span></div>
+<div class="card"><h3>🧱 Gutenberg</h3><p>WordPress's native block editor.</p><p><strong>Know:</strong> Blocks, columns, groups, patterns, templates and template parts.</p><span class="tag green">Native</span></div>
+<div class="card"><h3>🎨 Divi</h3><p>Premium visual website builder and theme ecosystem.</p></div>
+<div class="card"><h3>🧰 Beaver Builder</h3><p>Another visual page builder used in professional WordPress workflows.</p></div>
+</div>
+
+<div class="info"><strong>⭐ What should I learn first?</strong><br>Gutenberg → Elementor → basic HTML/CSS. Don't try to learn five page builders at once.</div>
+</section>
+
+<section class="section searchable" id="pages">
+<div class="section-title"><h2>📄 5. Important Pages Every Website Needs</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🌐 Basic Website</h3><ul><li>Home</li><li>About</li><li>Services</li><li>Portfolio</li><li>Contact</li><li>Blog</li></ul></div>
+<div class="card"><h3>🏢 Business Website</h3><ul><li>Home</li><li>About</li><li>Services</li><li>Pricing</li><li>Testimonials</li><li>FAQ</li><li>Contact</li><li>Privacy Policy</li><li>Terms & Conditions</li></ul></div>
+<div class="card"><h3>💻 Portfolio</h3><ul><li>Home</li><li>About Me</li><li>Skills</li><li>Projects</li><li>Resume</li><li>Contact</li></ul></div>
+</div>
+</section>
+
+<section class="section searchable" id="seo">
+<div class="section-title"><h2>🔍 6. SEO Sticky Note</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🧠 What is SEO?</h3><p><strong>SEO = Search Engine Optimization.</strong> It helps search engines understand your website and can help your pages appear in relevant search results.</p></div>
+<div class="card"><h3>📌 Important SEO Elements</h3><ul><li>Page title</li><li>Meta description</li><li>Clean URL</li><li>H1</li><li>H2/H3 headings</li><li>Relevant keywords/topics</li><li>Internal links</li><li>Useful external links</li><li>Image ALT text</li><li>XML sitemap</li><li>Robots.txt</li><li>Mobile responsiveness</li><li>Page speed</li><li>Structured data / Schema</li></ul></div>
+<div class="card"><h3>🛠️ SEO Tools</h3><ul><li>Google Search Console</li><li>Google Analytics</li><li>Google Tag Manager</li><li>Rank Math</li><li>Yoast SEO</li><li>All in One SEO</li></ul></div>
+</div>
+</section>
+
+<section class="section searchable" id="security">
+<div class="section-title"><h2>🔐 7. Security Sticky Note</h2></div>
+
+<div class="card">
+<ul class="checklist">
+<li><label><input type="checkbox"> Use strong, unique passwords</label></li>
+<li><label><input type="checkbox"> Enable 2FA where available</label></li>
+<li><label><input type="checkbox"> Keep WordPress updated</label></li>
+<li><label><input type="checkbox"> Keep plugins updated</label></li>
+<li><label><input type="checkbox"> Keep themes updated</label></li>
+<li><label><input type="checkbox"> Maintain regular backups</label></li>
+<li><label><input type="checkbox"> Use HTTPS/SSL</label></li>
+<li><label><input type="checkbox"> Delete unused plugins</label></li>
+<li><label><input type="checkbox"> Delete unused themes</label></li>
+<li><label><input type="checkbox"> Avoid nulled/pirated themes and plugins</label></li>
+</ul>
+<div class="warning"><strong>🚨 Never forget:</strong> A security plugin is not a replacement for updates, backups and good account security.</div>
+</div>
+</section>
+
+<section class="section searchable" id="speed">
+<div class="section-title"><h2>🚀 8. Speed Optimization</h2></div>
+
+<div class="card">
+<h3>⚡ Remember this formula</h3>
+<div class="code-box">Images + Cache + CSS + JS + Fonts + Database + Hosting</div>
+
+<div class="cards" style="margin-top:20px">
+<div><h4>🖼️ Images</h4><p>Resize and compress images. Consider WebP or AVIF.</p></div>
+<div><h4>💨 Cache</h4><p>Use an appropriate caching solution for your hosting stack.</p></div>
+<div><h4>📦 Plugins</h4><p>Remove plugins you do not need and avoid redundant plugins.</p></div>
+<div><h4>🧹 Database</h4><p>Keep the database healthy and avoid unnecessary clutter.</p></div>
+<div><h4>🔤 Fonts</h4><p>Use a sensible number of font files and weights.</p></div>
+<div><h4>🌐 Hosting</h4><p>Good hosting affects response time, reliability and scalability.</p></div>
+</div>
+
+<div class="info"><strong>Useful plugins:</strong> LiteSpeed Cache, WP Rocket, WP-Optimize, Smush and ShortPixel.</div>
+</div>
+</section>
+
+<section class="section searchable" id="images">
+<div class="section-title"><h2>🖼️ 9. Image Formats</h2></div>
+
+<div class="table-wrap">
+<table>
+<tr><th>Format</th><th>Common Use</th></tr>
+<tr><td>JPG/JPEG</td><td>Photos</td></tr>
+<tr><td>PNG</td><td>Transparency and graphics</td></tr>
+<tr><td>SVG</td><td>Logos and icons</td></tr>
+<tr><td>WebP</td><td>Modern optimized web images</td></tr>
+<tr><td>AVIF</td><td>Very optimized modern image format</td></tr>
+<tr><td>GIF</td><td>Simple animations</td></tr>
+</table>
+</div>
+
+<div class="warning"><strong>💡 Remember:</strong> Don't upload a 5 MB image when a much smaller optimized image will work. Always balance quality, dimensions and file size.</div>
+</section>
+
+<section class="section searchable" id="woocommerce">
+<div class="section-title"><h2>🛒 10. WooCommerce Sticky Note</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🛍️ Core Concepts</h3><ul><li>Product</li><li>Product category</li><li>Product attributes</li><li>Variations</li><li>Cart</li><li>Checkout</li><li>Orders</li><li>Coupons</li><li>Shipping</li><li>Taxes</li><li>Payment gateways</li></ul></div>
+<div class="card"><h3>🏪 Store Flow</h3><div class="flow"><div class="flow-step">1️⃣ Product</div><div class="arrow">↓</div><div class="flow-step">2️⃣ Product page</div><div class="arrow">↓</div><div class="flow-step">3️⃣ Add to cart</div><div class="arrow">↓</div><div class="flow-step">4️⃣ Checkout</div><div class="arrow">↓</div><div class="flow-step">5️⃣ Payment</div><div class="arrow">↓</div><div class="flow-step">6️⃣ Order</div></div></div>
+</div>
+</section>
+
+<section class="section searchable" id="payments">
+<div class="section-title"><h2>💳 11. Payment Plugins / Gateways</h2></div>
+
+<div class="cards">
+<div class="card"><h3>💳 Stripe</h3><p>Popular payment platform with WooCommerce integrations.</p></div>
+<div class="card"><h3>🅿️ PayPal</h3><p>Popular online payment option with WooCommerce integrations.</p></div>
+<div class="card"><h3>🇮🇳 Razorpay</h3><p>Payment platform commonly used for supported Indian businesses and currencies.</p></div>
+<div class="card"><h3>🛍️ WooPayments</h3><p>WooCommerce payment solution available in supported markets.</p></div>
+<div class="card"><h3>🌍 Mollie</h3><p>Payment service with support varying by country and business.</p></div>
+</div>
+<div class="warning"><strong>⚠️ Important:</strong> Before choosing a gateway, check current support for your country, currency, business type and required verification.</div>
+</section>
+
+<section class="section searchable" id="email">
+<div class="section-title"><h2>📧 12. WordPress Email</h2></div>
+
+<div class="card">
+<div class="code-box">WordPress → SMTP → Email Provider → Recipient</div>
+<h3 style="margin-top:20px">Useful plugins</h3>
+<ul><li>WP Mail SMTP</li><li>FluentSMTP</li><li>Post SMTP</li></ul>
+<div class="info"><strong>Why SMTP?</strong> WordPress's default mail delivery can be unreliable depending on the hosting environment. SMTP gives you a more reliable authenticated mail route when configured correctly.</div>
+</div>
+</section>
+
+<section class="section searchable" id="coding">
+<div class="section-title"><h2>💻 13. WordPress Coding</h2></div>
+
+<div class="cards">
+<div class="card"><h3>HTML</h3><p>Website structure.</p><div class="code-box">&lt;h1&gt;Hello World&lt;/h1&gt;</div></div>
+<div class="card"><h3>CSS</h3><p>Website styling and design.</p><div class="code-box">body {
+    background: pink;
+}</div></div>
+<div class="card"><h3>JavaScript</h3><p>Interactions and dynamic browser behavior.</p><div class="code-box">document.querySelector("button");</div></div>
+<div class="card"><h3>PHP</h3><p>Important for WordPress backend, themes and plugins.</p></div>
+<div class="card"><h3>MySQL</h3><p>WordPress stores structured site data in a database.</p></div>
+<div class="card"><h3>WordPress</h3><p>A practical WordPress developer stack includes PHP + MySQL + HTML + CSS + JavaScript.</p></div>
+</div>
+</section>
+
+<section class="section searchable" id="files">
+<div class="section-title"><h2>📁 14. Important WordPress Files & Folders</h2></div>
+
+<div class="card">
+<div class="code-box">wp-admin/
+wp-content/
+wp-includes/
+
+wp-content/
+├── themes/
+├── plugins/
+└── uploads/
+
+Theme:
+wp-content/themes/your-theme/
+
+Plugin:
+wp-content/plugins/your-plugin/</div>
+
+<div class="info"><strong>💡 Remember:</strong> Most customization work involves <strong>wp-content</strong>, especially themes, plugins and uploads.</div>
+</div>
+</section>
+
+<section class="section searchable" id="childtheme">
+<div class="section-title"><h2>🧠 15. Child Theme</h2></div>
+
+<div class="card">
+<h3>🌱 What is a child theme?</h3>
+<p>A child theme lets you customize a parent theme while keeping your customizations separate from the parent theme's files.</p>
+<div class="warning"><strong>Important:</strong> Avoid directly modifying a parent theme when you need changes that must survive parent-theme updates. Use a child theme or an appropriate customization method.</div>
+</div>
+</section>
+
+<section class="section searchable" id="plugin-types">
+<div class="section-title"><h2>🔌 16. Plugin Types to Know</h2></div>
+
+<div class="table-wrap">
+<table>
+<tr><th>Purpose</th><th>Plugin examples</th></tr>
+<tr><td>SEO</td><td>Rank Math, Yoast SEO, All in One SEO,SEO Extention (sf)</td></tr>
+<tr><td>Security</td><td>Wordfence, Solid Security</td></tr>
+<tr><td>Forms</td><td>WPForms, Fluent Forms, Contact Form 7, Gravity Forms</td></tr>
+<tr><td>Ecommerce</td><td>WooCommerce</td></tr>
+<tr><td>Backup</td><td>UpdraftPlus, Jetpack Backup, BlogVault</td></tr>
+<tr><td>Cache</td><td>LiteSpeed Cache, WP Rocket, W3 Total Cache</td></tr>
+<tr><td>SMTP</td><td>WP Mail SMTP, FluentSMTP, Post SMTP</td></tr>
+<tr><td>Analytics</td><td>Site Kit, MonsterInsights</td></tr>
+<tr><td>Images</td><td>Smush, ShortPixel, Imagify, EWWW Image Optimizer</td></tr>
+<tr><td>Page Builder</td><td>Elementor, Beaver Builder, Divi</td></tr>
+<tr><td>Membership</td><td>MemberPress</td></tr>
+<tr><td>LMS</td><td>LearnDash</td></tr>
+<tr><td>Translation</td><td>WPML and other translation solutions</td></tr>
+<tr><td>Migration</td><td>Duplicator, All-in-One WP Migration</td></tr>
+<tr><td>Cookie Consent</td><td>CookieYes and other consent-management tools</td></tr>
+</table>
+</div>
+</section>
+
+<section class="section searchable" id="migration">
+<div class="section-title"><h2>📦 17. WordPress Migration</h2></div>
+
+<div class="card">
+<h3>🔄 Old Hosting → New Hosting</h3>
+<div class="flow">
+<div class="flow-step">1️⃣ Backup files + database</div>
+<div class="arrow">↓</div>
+<div class="flow-step">2️⃣ Prepare new hosting</div>
+<div class="arrow">↓</div>
+<div class="flow-step">3️⃣ Move website files</div>
+<div class="arrow">↓</div>
+<div class="flow-step">4️⃣ Move/import database</div>
+<div class="arrow">↓</div>
+<div class="flow-step">5️⃣ Update configuration/domain if needed</div>
+<div class="arrow">↓</div>
+<div class="flow-step">6️⃣ Test before changing DNS</div>
+<div class="arrow">↓</div>
+<div class="flow-step">7️⃣ Point domain and test live website</div>
+</div>
+<div class="info"><strong>Useful tools:</strong> Duplicator, All-in-One WP Migration and UpdraftPlus can help with different migration/backup workflows.</div>
+</div>
+</section>
+
+<section class="section searchable" id="hosting">
+<div class="section-title"><h2>🌐 18. Domain + Hosting</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🌐 Domain</h3><p>Your website address.</p><div class="code-box">mywebsite.com</div></div>
+<div class="card"><h3>🖥️ Hosting</h3><p>The server environment where your website files and database are stored and served.</p></div>
+<div class="card"><h3>🏢 Hosting Providers to Know</h3><ul><li>Hostinger</li><li>SiteGround</li><li>Bluehost</li><li>Cloudways</li><li>WP Engine</li></ul><p style="margin-top:10px">Features, pricing and suitability vary by project.</p></div>
+</div>
+</section>
+
+<section class="section searchable">
+<div class="section-title"><h2>🔒 19. SSL / HTTPS</h2></div>
+
+<div class="card">
+<p>SSL/TLS enables secure HTTPS connections.</p>
+<div class="code-box">https://mywebsite.com</div>
+<p style="margin-top:15px">instead of:</p>
+<div class="code-box">http://mywebsite.com</div>
+<div class="info"><strong>Remember:</strong> Modern websites should normally use HTTPS, especially when handling logins, forms or ecommerce transactions.</div>
+</div>
+</section>
+
+<section class="section searchable" id="database">
+<div class="section-title"><h2>🗄️ 20. WordPress Database</h2></div>
+
+<div class="card">
+<h3>Important tables / concepts</h3>
+<div class="code-box">wp_posts
+wp_postmeta
+wp_users
+wp_usermeta
+wp_options
+wp_terms
+wp_term_taxonomy
+wp_comments</div>
+<div class="warning"><strong>⚠️ Careful:</strong> Don't manually edit the database unless you understand exactly what you are changing and have a backup.</div>
+</div>
+</section>
+
+<section class="section searchable" id="users">
+<div class="section-title"><h2>👤 21. WordPress User Roles</h2></div>
+
+<div class="cards">
+<div class="card"><h3>👑 Administrator</h3><p>Full site administration capabilities.</p></div>
+<div class="card"><h3>✏️ Editor</h3><p>Can manage and publish content with broad editorial capabilities.</p></div>
+<div class="card"><h3>📝 Author</h3><p>Can publish and manage their own posts.</p></div>
+<div class="card"><h3>📄 Contributor</h3><p>Can write and manage their own posts but normally cannot publish them.</p></div>
+<div class="card"><h3>👤 Subscriber</h3><p>Basic account role, commonly used where users need to log in but do not manage content.</p></div>
+</div>
+</section>
+
+<section class="section searchable" id="tools">
+<div class="section-title"><h2>🧰 22. Must-Know WordPress Tools</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🌐 Website Management</h3><ul><li>WordPress Dashboard</li><li>cPanel</li><li>FTP/SFTP</li><li>phpMyAdmin</li></ul></div>
+<div class="card"><h3>💻 Development</h3><ul><li>VS Code</li><li>Git</li><li>GitHub</li><li>Local WordPress</li><li>WP-CLI</li></ul></div>
+<div class="card"><h3>🧪 Testing</h3><ul><li>Chrome DevTools</li><li>PageSpeed Insights</li><li>GTmetrix</li><li>Lighthouse</li></ul></div>
+</div>
+</section>
+
+<section class="section searchable" id="local">
+<div class="section-title"><h2>🧪 23. Local WordPress Development</h2></div>
+
+<div class="cards">
+<div class="card"><h3>🖥️ Local</h3><p>Desktop development environment designed for WordPress.</p></div>
+<div class="card"><h3>🧰 XAMPP</h3><p>General local development stack that can be used to run PHP/MySQL locally.</p></div>
+<div class="card"><h3>🍎 MAMP</h3><p>Local development environment commonly used on macOS and also available for Windows.</p></div>
+<div class="card"><h3>🚀 DevKinsta</h3><p>Local WordPress development environment from Kinsta.</p></div>
+</div>
+
+<div class="card" style="margin-top:20px">
+<h3>Typical workflow</h3>
+<div class="code-box">Local WordPress
+       ↓
+Build website
+       ↓
+Test
+       ↓
+Backup
+       ↓
+Deploy
+       ↓
+Live website</div>
+</div>
+</section>
+
+<section class="section searchable" id="launch">
+<div class="section-title"><h2>🚨 24. Never Forget — Before Going Live</h2></div>
+
+<div class="card">
+<div class="warning"><strong>💾 BACKUP FIRST!</strong><br>Always create a reliable backup before major changes to a live website.</div>
+
+<ul class="checklist" style="margin-top:18px!important">
+<li><label><input type="checkbox"> Domain connected</label></li>
+<li><label><input type="checkbox"> Hosting connected</label></li>
+<li><label><input type="checkbox"> SSL / HTTPS enabled</label></li>
+<li><label><input type="checkbox"> WordPress updated</label></li>
+<li><label><input type="checkbox"> Theme tested</label></li>
+<li><label><input type="checkbox"> Plugins updated and tested</label></li>
+<li><label><input type="checkbox"> Website works on mobile</label></li>
+<li><label><input type="checkbox"> Contact forms tested</label></li>
+<li><label><input type="checkbox"> Images optimized</label></li>
+<li><label><input type="checkbox"> SEO plugin configured</label></li>
+<li><label><input type="checkbox"> Sitemap checked</label></li>
+<li><label><input type="checkbox"> Backup created</label></li>
+<li><label><input type="checkbox"> Checkout tested if ecommerce</label></li>
+<li><label><input type="checkbox"> Final website test completed</label></li>
+</ul>
+</div>
+</section>
+
+<section class="section searchable" id="stack">
+<div class="section-title"><h2>⭐ 25. Best Beginner Stack</h2></div>
+
+<div class="card">
+<div class="code-box">WordPress
+   +
+Astra
+   +
+Gutenberg
+   +
+Elementor
+   +
+Rank Math
+   +
+Wordfence
+   +
+UpdraftPlus
+   +
+WP Mail SMTP
+   +
+WooCommerce (if store)</div>
+
+<div class="info"><strong>💡 Don't install 30–40 plugins just because you can.</strong> A clean WordPress website can be fast and maintainable with a small, well-chosen set of plugins.</div>
+</div>
+</section>
+
+<section class="section searchable" id="roadmap">
+<div class="section-title"><h2>🌱 26. WordPress Learning Roadmap</h2></div>
+
+<div class="card">
+<div class="code-box">1.  WordPress basics
+        ↓
+2.  Themes
+        ↓
+3.  Plugins
+        ↓
+4.  Gutenberg
+        ↓
+5.  Elementor
+        ↓
+6.  HTML
+        ↓
+7.  CSS
+        ↓
+8.  Basic JavaScript
+        ↓
+9.  PHP
+        ↓
+10. MySQL
+        ↓
+11. WordPress hooks
+        ↓
+12. Custom themes
+        ↓
+13. Custom plugins
+        ↓
+14. WooCommerce
+        ↓
+15. SEO
+        ↓
+16. Security
+        ↓
+17. Deployment</div>
+
+<div class="info"><strong>🎯 Developer focus:</strong> WordPress + Elementor/Gutenberg + HTML + CSS + JavaScript + PHP + MySQL + Git + APIs + WooCommerce.</div>
+</div>
+</section>
+
+<section class="section searchable">
+<div class="section-title"><h2>📝 My Personal Notes</h2></div>
+<div class="card">
+<h3>💗 Things I Learn</h3>
+<p>Add your own discoveries here later. For example:</p>
+<div class="code-box">• Today I learned...
+• Plugin I tested...
+• Problem I solved...
+• Command I need to remember...
+• Website idea...
+• Client requirement...
+• Useful tutorial...</div>
+<div class="tip"><strong>🌷 Tip:</strong> Keep this section personal. Your Vault becomes much more useful when you add things you actually discover while building websites.</div>
+</div>
+</section>
+
+<div id="noResults">
+    <h2>🔎 Nothing found</h2>
+    <p>Try another word such as <strong>SEO</strong>, <strong>Elementor</strong>, <strong>backup</strong>, <strong>WooCommerce</strong>, <strong>PHP</strong> or <strong>theme</strong>.</p>
+</div>
+
+</main>
+
+<footer>
+<p>🌷 <strong>My WordPress Vault</strong></p>
+<p>Keep learning. Keep building. Keep notes. 💻✨</p>
+</footer>
+
+<script>
+/* SEARCH: searches individual cards instead of hiding unrelated content */
+function searchNotes(){
+    const input = document.getElementById("searchBox").value.toLowerCase().trim();
+    const sections = document.querySelectorAll(".searchable");
+    const noResults = document.getElementById("noResults");
+    let found = false;
+
+    sections.forEach(section => {
+        const cards = section.querySelectorAll(".card, .table-wrap");
+        let sectionFound = false;
+
+        if(cards.length === 0){
+            const text = section.innerText.toLowerCase();
+            sectionFound = !input || text.includes(input);
+        }else{
+            cards.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if(!input || text.includes(input)){
+                    item.style.display = "";
+                    sectionFound = true;
+                    found = true;
+                }else{
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        if(sectionFound){
+            section.style.display = "";
+            found = true;
+        }else{
+            section.style.display = "none";
+        }
+    });
+
+    noResults.style.display = (input && !found) ? "block" : "none";
+}
+
+function clearSearch(){
+    const box = document.getElementById("searchBox");
+    box.value = "";
+
+    document.querySelectorAll(".searchable").forEach(section => {
+        section.style.display = "";
+        section.querySelectorAll(".card, .table-wrap").forEach(item => {
+            item.style.display = "";
+        });
+    });
+
+    document.getElementById("noResults").style.display = "none";
+}
+
+/* SAVE CHECKBOXES IN THE BROWSER */
+document.addEventListener("DOMContentLoaded", () => {
+    const boxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+
+    boxes.forEach((box,index) => {
+        const key = "wordpress-vault-check-" + index;
+        box.checked = localStorage.getItem(key) === "true";
+
+        box.addEventListener("change", () => {
+            localStorage.setItem(key, box.checked);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
